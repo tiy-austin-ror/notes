@@ -4,10 +4,11 @@
 Tests are written in their own files and are run separately from the 'production code' of the system that does the actual work. To use the built-in testing framework that comes in Ruby, you have to write test files that follow this pattern.
 
 ``` rb
-require 'test/unit'
+require 'minitest/autorun'
+require 'minitest/pride'
 
 # The class name should be the name of the class you are testing followed by Test
-class MyClassTest < Test::Unit::TestCase
+class MyClassTest < MiniTest::Test
 
   # The method name be the method you are testing and what you are expecting, must start with the word test
   def my_test_method_returns_5
@@ -77,10 +78,11 @@ end
 This file would be `spec/card_test.rb`:
 
 ``` rb
-require 'test/unit'
+require 'minitest/autorun'
+require 'minitest/pride'
 require_relative '../lib/card'
 
-class CardTest < Test::Unit::TestCase
+class CardTest < MiniTest::Test
   def test_can_create_card
     assert(Card.new(10, :hearts))
   end
