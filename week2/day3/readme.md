@@ -17,4 +17,4 @@
   - [Design Patterns](http://c2.com/cgi/wiki?DesignPatterns)
   - [Design Patterns Index](http://c2.com/cgi/wiki?SoftwareDesignPatternsIndex)
   - [Anti-patterns Index](https://sourcemaking.com/antipatterns) 
-  - [SOLID](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
+  - [SOLID](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design))
