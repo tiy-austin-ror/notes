@@ -1,10 +1,13 @@
 class Game
+  attr_reader :number, :guesses
+
   MAX_GUESSES = 5
   MAX_NUMBER  = 100
 
-  def initialize
-    @out = Printer.new
-    @in  = Reader.new
+  def initialize(printer = Printer.new,
+                 reader  = Reader.new)
+    @out = printer
+    @in  = reader
   end
 
   def setup
@@ -18,8 +21,6 @@ class Game
     run_game
     gameover
   end
-
-  private
 
   def run_game
     while guesses_left? do
