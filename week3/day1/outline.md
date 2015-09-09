@@ -3,7 +3,7 @@
     - Understanding error messages
     - Reading line numbers
     - Using `puts` and `inspect`
-    - Using Pry
+    - Using Pry _(Coming tomorrow)_
   - Databases
     - Like CSVs, but 1000 times better
     - Think spreadsheets.
