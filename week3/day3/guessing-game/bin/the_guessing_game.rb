@@ -2,7 +2,7 @@ require_relative "../db/setup"
 require_relative '../lib/all'
 
 
-puts "Would you like to start a new game (1) or restart (2)?"
+puts "Would you like to start a new game (1) or resume (2)?"
 
 response = gets.chomp.to_i
 
