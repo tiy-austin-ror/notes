@@ -6,18 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+words = %w(build ruby bundler errors ughh rake what is going on how works linenumber stacktrace sleep coffee caffeine chris shhhhhh)
 
-u = User.new
-u.first_name = 'justin'
-u.last_name  = 'herrick'
-u.save!
-
-a = User.new
-a.first_name = 'justin'
-a.last_name  = 'herrick'
-a.save!
-
-b = User.new
-b.first_name = 'justin'
-b.last_name  = 'herrick'
-b.save!
+100.times do |n|
+  message = 5.times.map { words.sample }.join(' ')
+  Tweet.create({ message: message })
+end
