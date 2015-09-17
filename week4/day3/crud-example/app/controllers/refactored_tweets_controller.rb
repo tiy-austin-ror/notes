@@ -49,15 +49,16 @@ class RefactoredTweetsController < ApplicationController
     !(field.nil? || field.empty?)
   end
 
+  def render_not_found
+    render_json_error('Record Not Found!', 404)
+  end
+
+  def render_json_error(message, status)
+    render_json({ error_msg: message }, status)
+  end
+
   def render_json(payload, status: 200)
     render json: payload.to_json, status: status
   end
 
-  def render_not_found
-    render json: { error_msg: 'Record Not Found!', id: params[:id] }.to_json, status: 404
-  end
-
-  def render_json_error(message, status)
-    render json: { error_msg: message }.to_json, status: status
-  end
 end
