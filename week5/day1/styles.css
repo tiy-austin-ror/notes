@@ -1,0 +1,31 @@
+body {
+  background: black;
+  color: lightgreen;
+  font-family: monospace;
+}
+
+h2 {
+  /*text-decoration: underline;*/
+  border-bottom: 2px solid white;
+}
+
+a {
+  color: lightblue;
+  text-decoration: none;
+  transition: all 5s ease;
+}
+
+a:hover {
+  text-decoration:underline;
+  /*font-size: 20px;*/
+  color: yellow;
+  transition: all 1s ease;
+}
+
+.about {
+  border: 2px dotted lightgray;
+}
+
+a {
+  color: red;
+}
