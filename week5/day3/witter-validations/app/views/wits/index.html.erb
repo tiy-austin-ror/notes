@@ -1,0 +1,9 @@
+<h2>All (<%= wits.length %>) Wits</h2>
+
+<ul>
+  <% wits.each do |wit| %>
+    <li><%= wit.id %> <%= wit.message %> by <%= wit.user.username %> </li>
+  <% end %>
+</ul>
+<%= link_to('< Prev Page', root_path(page: page - 1, limit: limit)) %>
+<%= link_to('More Page >', root_path(page: page + 1, limit: limit)) %>

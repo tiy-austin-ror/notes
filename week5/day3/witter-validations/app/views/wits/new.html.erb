@@ -1,0 +1,15 @@
+<h2>New Wit for <%= user.name %> </h2>
+
+<% if wit.errors.any? %>
+  <% wit.errors.messages.each do |att, err_msg| %>
+    <p class='error'><strong><%= att %>:</strong> <%= err_msg.join %></p>
+  <% end %>
+<% end %>
+
+<%= form_for([user, wit]) do |f| %>
+  <p>
+  <%= f.label :message %>
+  <%= f.text_field :message %>
+  </p>
+  <%= f.submit %>
+<% end %>
