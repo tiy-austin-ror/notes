@@ -1,0 +1,16 @@
+<h2>User #<%= user.id %></h2>
+<p><%= user.name %> (<%= user.username %>)</p>
+
+<%= link_to "New Wit for User", new_user_wit_path(user) %>
+
+<h3>Wits for User</h3>
+<ul>
+  <% user.wits.each do |wit| %>
+    <li>
+      <%= link_to(wit.message, [user, wit]) %> (<%= wit.published ? '' : 'Not ' %> Published)
+      |
+      <%= link_to('Destroy Wit', [user, wit], method: :delete, data: {
+        confirm: 'are you sure?' })%>
+    </li>
+  <% end %>
+</ul>

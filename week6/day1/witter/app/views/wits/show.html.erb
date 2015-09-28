@@ -1,0 +1,4 @@
+<h2><%= wit.message %> by <%= link_to(user.name, user) %></h2>
+<h3>Published? <%= wit.published.inspect %></h3>
+
+<%= link_to("Edit Wit", edit_user_wit_path(user, wit)) %>
