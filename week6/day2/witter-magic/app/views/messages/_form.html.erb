@@ -1,0 +1,29 @@
+<%= form_for(@message) do |f| %>
+  <% if @message.errors.any? %>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong><%= pluralize(@message.errors.count, "error") %></strong> prohibited this message from being saved:
+      <ul>
+        <% @message.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :body %><br>
+    <%= f.text_area :body, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id, class: 'form-control'%>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Create', class: 'btn btn-default' %>
+  </div>
+<% end %>

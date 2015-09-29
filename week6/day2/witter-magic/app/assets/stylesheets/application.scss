@@ -1,0 +1,16 @@
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ @import "scaffolds";
+ @import "wits";
+ @import "users";
+ @import "messages";
+
+.notice {
+  font-weight: bold;
+  color: green;
+}
+.alert {
+  font-weight: bold;
+  color: red;
+}
