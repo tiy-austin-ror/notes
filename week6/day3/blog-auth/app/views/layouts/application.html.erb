@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header class='main'>
+    <h1><%= link_to 'My Awesome Site', root_path %></h1>
+    <nav>
+      |
+      <%= link_to 'New Post', new_post_path %>
+      |
+      <%= link_to 'Posts', posts_path %>
+      |
+      <%= link_to 'About', about_path %>
+      |
+      <%= link_to 'Sign Up', new_user_path %>
+      |
+      <% if logged_in? %>
+        <%= link_to 'Logout', logout_path %>
+      <% else %>
+        <%= link_to 'Login', login_path %>
+      <% end %>
+      |
+    </nav>
+    <% if @current_user %>
+      <%= "Hello, #{@current_user.email}" %>
+    <% end %>
+  </header>
+  <div class='container'>
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, { class: "flash #{name}" }) %>
+    <% end %>
+    <%= yield %>
+  </div>
+  <footer>
+    <%= params.inspect if Rails.env.development? %>
+    Made by justin
+  </footer>
+</body>
+</html>
