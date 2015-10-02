@@ -8,6 +8,7 @@
             <%= action_link_to :order, :price %>
             <%# Above is a helper to do below %>
             <%# link_to "Price", params.merge(order: :price), class: 'btn btn-default btn-sm'%>
+            <%# Linking to the params hash will link to the same page you are on currently %>
             <%= action_link_to :order, :name %>
             <%= action_link_to :order, :quantity %>
           </div>

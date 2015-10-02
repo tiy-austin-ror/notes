@@ -4,6 +4,7 @@ class Item < ActiveRecord::Base
   def dollar_price
     price / 100
   end
+  
   def display_price
     "$#{dollar_price}"
   end
