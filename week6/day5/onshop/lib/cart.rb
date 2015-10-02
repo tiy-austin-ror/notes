@@ -6,12 +6,12 @@ class Cart
 
   def add(item)
     @items.push(item)
-    update_session
+    update_session #Everytime an item is added, update the session
   end
 
   def remove(item)
     @items.delete(item)
-    update_session
+    update_session #Everytime an item is removed, update the session
   end
 
   def price

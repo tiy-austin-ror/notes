@@ -38,14 +38,12 @@ class ItemsController < ApplicationController
   end
 
   def remove_from_cart
-    cart = Cart.new(session[:cart_items])
-    cart.remove(params[:id])
+    Cart.new(session[:cart_items]).remove(params[:id])
     redirect_to :back
   end
 
   def add_to_cart
-    cart = Cart.new(session[:cart_items])
-    cart.add(params[:id])
+    Cart.new(session[:cart_items]).add(params[:id])
     redirect_to :back
   end
 
