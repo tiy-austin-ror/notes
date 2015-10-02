@@ -9,6 +9,15 @@ header {
   h1 {
     display: inline;
     width: 200px;
+    a {
+      color: white;
+      &:hover {
+        transition: all 0.25s;
+        color: gray;
+        border-bottom: 0;
+        text-decoration:none;
+      }
+    }
   }
   nav {
     float:right;
