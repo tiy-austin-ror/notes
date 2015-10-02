@@ -1,0 +1,15 @@
+<div class='row'>
+  <div class='col-md-12'>
+    <section class='items'>
+      <% @items.each do |item| %>
+        <div class='item'>
+          <%= image_tag(item.img_url, class: 'icon') %>
+          <p class='title'>
+            <%= link_to(item.name, item) %></br>
+            <%= "$" + (item.price / 100).to_s %>
+          </p>
+        </div>
+      <% end %>
+    </section>
+  </div>
+</div>
