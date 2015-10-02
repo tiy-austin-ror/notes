@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Onshop</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <header>
+        <h1>OnShip<small>"Buy our Robots"</small></h1>
+        <nav>
+          <ul>
+            <li><%= link_to('Items', items_path) %></li>
+          </ul>
+        </nav>
+      </header>
+      <p class="notice"><%= notice %></p>
+      <p class='alert'><%= alert %></p>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-9'>
+      <%= yield %>
+    </div>
+    <div class='col-md-3'>
+      <%= render partial: 'shared/sidebar' %>
+    </div>
+  </div>
+</div>
+</body>
+</html>

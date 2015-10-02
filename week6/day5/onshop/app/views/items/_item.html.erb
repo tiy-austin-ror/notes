@@ -1,0 +1,9 @@
+<%= link_to item do %>
+  <div class='item'>
+    <%= image_tag(item.img_url, class: 'icon') %>
+    <p class='title'>
+      <%= link_to(item.name, item) %></br>
+      <%= item.display_price %>
+    </p>
+  </div>
+<% end %>

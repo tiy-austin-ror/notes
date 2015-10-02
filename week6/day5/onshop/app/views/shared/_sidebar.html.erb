@@ -1,0 +1,8 @@
+<section class='sidebar'>
+  <h2>Your Cart</h2>
+  <% @cart_items.each do |item| %>
+    <%= render partial: 'shared/cart_item', locals: { item: item } %>
+  <% end %>
+  <h3>Total: <%= number_to_currency(@cart_price) %></h3>
+  <%= link_to 'Checkout', '#checkout_path', class: 'btn btn-primary btn-large' %>
+</section>

@@ -3,7 +3,9 @@ class ItemsController < ApplicationController
 
   # GET /items
   def index
-    @items = Item.all.limit(10)
+    order_by = (params[:order] || :id)
+    sort     = (params[:sort]  || "ASC")
+    @items = Item.order("#{order_by} #{sort}").page(params[:page])
     setup_sidebar
   end
 
@@ -54,7 +56,7 @@ class ItemsController < ApplicationController
     cart_items.delete(item_id)
     redirect_to :back
   end
-  
+
   def add_to_cart
     cart_items = session[:cart_items]
     if cart_items.nil? || !cart_items.is_a?(Array)
@@ -69,6 +71,7 @@ class ItemsController < ApplicationController
   private
     def setup_sidebar
       @cart_items = []
+      @cart_price = 0
       cart_item_ids = session[:cart_items]
       if cart_item_ids.present?
         cart_item_ids.each do |id|
