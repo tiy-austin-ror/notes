@@ -1,27 +1,22 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
-  # GET /orders
   def index
     @orders = Order.all
   end
 
-  # GET /orders/1
   def show
   end
 
-  # GET /orders/new
   def new
     @order = Order.new
   end
 
-  # GET /orders/1/edit
   def edit
   end
 
-  # POST /orders
   def create
-    @order = Order.new(order_params)
+    @order = create_order_from_session_cart
 
     if @order.save
       redirect_to @order, notice: 'Order was successfully created.'
@@ -30,7 +25,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /orders/1
   def update
     if @order.update(order_params)
       redirect_to @order, notice: 'Order was successfully updated.'
@@ -39,19 +33,32 @@ class OrdersController < ApplicationController
     end
   end
 
-  # DELETE /orders/1
   def destroy
     @order.destroy
     redirect_to orders_url, notice: 'Order was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def create_order_from_session_cart
+      cart  = SessionCart.new(session)
+      order = Order.new
+      cart.item_ids.each do |id|
+        # I don't need to supply the order_id below, because I am creating this
+        # Lineitem "through" the relation, so rails sets that up for you.
+        order.lineitems.create(
+          item_id: id,
+          quantity: 1 # Should be updated to be dynamic at some point
+        )
+      end
+      if order.save
+        order
+      end
+    end
+
     def set_order
       @order = Order.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def order_params
       params.require(:order).permit(:user_id)
     end

@@ -34,6 +34,10 @@ header {
       list-style: none;
       margin-top: 10px;
       margin-bottom: 0;
+      li {
+        float:left;
+        margin-right: 20px;
+      }
     }
   }
 }
@@ -47,13 +51,17 @@ header {
   }
 }
 
+.center {
+  text-align: center;
+}
+
 .item {
   margin: 0px 10px 25px 10px;
   vertical-align: top;
   display: inline-block;
   border: 1px solid black;
-  height: 250px;
-  width: 180px;
+  height: 290px;
+  width: 188px;
   transition: all 0.4s;
 
   &:hover {

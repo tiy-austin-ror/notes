@@ -1,6 +1,7 @@
 require 'cart'
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user, only: [:index, :show, :add_to_cart, :remove_from_cart]
 
   def index
     order_by = (params[:order] || :id) #if no sort is specified, sort by id
@@ -38,12 +39,12 @@ class ItemsController < ApplicationController
   end
 
   def remove_from_cart
-    Cart.new(session[:cart_items]).remove(params[:id])
+    SessionCart.new(session).remove(params[:id])
     redirect_to :back
   end
 
   def add_to_cart
-    Cart.new(session[:cart_items]).add(params[:id])
+    SessionCart.new(session).add(params[:id])
     redirect_to :back
   end
 

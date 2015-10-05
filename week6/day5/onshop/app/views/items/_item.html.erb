@@ -1,9 +1,14 @@
 <%= link_to item do %>
-  <div class='item'>
+  <div class='item col-md-4'>
     <%= image_tag(item.img_url, class: 'icon') %>
     <p class='title'>
       <%= link_to(item.name, item) %></br>
       <%= item.display_price %>
+    </p>
+    <p class='center'>
+      <%= link_to('Add To Cart', add_to_cart_item_path(item),
+          class: 'btn btn-primary btn-xs',
+          method: :POST) %>
     </p>
   </div>
 <% end %>

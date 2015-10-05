@@ -1,7 +1,12 @@
-class Cart
+class SessionCart
+  DEFAULT_STORAGE_KEY = :cart_items
 
-  def initialize(items = session[:cart_items])
-    @items = items || []
+  attr_reader :session
+
+  def initialize(session, storage_key_name = DEFAULT_STORAGE_KEY)
+    @storage_key_name = storage_key_name
+    @items   = session[@storage_key_name] || []
+    @session = session
   end
 
   def add(item)
@@ -18,6 +23,10 @@ class Cart
     raw_price / 100
   end
 
+  def item_ids
+    @items
+  end
+
   def items
     @items.map { |id| Item.find(id) } unless @items.first.is_a?(Item)
   end
@@ -25,7 +34,7 @@ class Cart
   private
 
   def update_session
-    session[:cart_items] = @items
+    session[@storage_key_name] = @items
   end
 
   def raw_price
