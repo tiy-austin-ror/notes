@@ -1,0 +1,32 @@
+<h2>New Posts</h2>
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2> Error(s) prohibited this post from being saved:</h2>
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+    <legend>Title</legend>
+    <%= f.text_field :title, placeholder: 'My Cool Post', maxlength: 50 %>
+    <p class='errors'></p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Body</legend>
+    <%= f.text_area :body, rows: 10, cols: 45, placeholder: 'Lorum Ipsum...' %>
+    <p class='errors'></p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Category</legend>
+    <%= f.text_field :category, placeholder: 'foobar' %>
+    <p class='errors'></p>
+  </fieldset>
+
+  <%= f.submit "Publish Post" %>
+<% end %>
