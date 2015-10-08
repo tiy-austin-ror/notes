@@ -1,0 +1,19 @@
+<h1>Post Edit</h1>
+<%= form_for(@post) do |f| %>
+  <fieldset>
+    <legend>Title</legend>
+    <%= f.text_field :title, placeholder: 'My Cool Post', maxlength: 50 %>
+  </fieldset>
+
+  <fieldset>
+    <legend>Body</legend>
+    <%= f.text_area :body, rows: 10, cols: 45, placeholder: 'Lorum Ipsum...' %>
+  </fieldset>
+
+  <fieldset>
+    <legend>Category</legend>
+    <%= f.text_field :category, placeholder: 'foobar' %>
+  </fieldset>
+
+  <p><%= f.submit "Publish Post" %></p>
+<% end %>

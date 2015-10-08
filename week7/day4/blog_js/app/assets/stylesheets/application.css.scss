@@ -1,0 +1,56 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'datetimepicker';
+
+body { margin: 0; }
+header.main {
+  background: lightgray;
+  margin: 0;
+  padding: 10px;
+}
+header.main h1 {
+  margin: 0;
+}
+
+.container {
+  margin: 0 auto;
+  width: 500px;
+  margin-bottom: 50px;
+}
+
+footer {
+  background: lightgray;
+  width: 100%;
+  padding: 20px;
+  bottom: 0;
+  left: 0;
+}
+
+.flash {
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+}
+.notice { background: green; }
+.alert { background: red; }
+
+.correct-field {
+  outline: 2px solid green;
+  border: 2px solid green;
+}
+
+.field-with-errors {
+  transition: all 1s;
+  outline: 2px solid red;
+  border: 2px solid red;
+  box-shadow: 2px 2px 0px gray;
+  box-shadow: 3px 3px 0px gray;
+  box-shadow: 4px 4px 0px gray;
+  // box-shadow: 5px 5px 0px gray;
+  margin: 5px;
+}
+
+.errors {
+  text-decoration: underline;
+  color: red;
+}
