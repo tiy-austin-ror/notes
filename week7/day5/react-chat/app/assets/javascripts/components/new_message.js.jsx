@@ -2,8 +2,9 @@ var NewMessage = React.createClass({
   getInitialState: function () {
     return {
       messageText: ''
-    }
+    };
   },
+
   submit: function () {
     $.ajax({
       url: '/messages',
@@ -16,21 +17,25 @@ var NewMessage = React.createClass({
         }
       },
       success: function (response) {
-        console.log('yay!');
-      }.bind(this)
+        console.log('yay! Message successfully sent.');
+      }
     });
-    this.setState({ messageText: '' });
+
+    this.setState({ messageText: '' }); // Clear the message text when the message has been sent.
   },
-  handleChange: function (e) {
+
+  handleChange: function (e) { // This 'handleChange' function is called every time the input field is changed.
     this.setState({
-      messageText: e.target.value
+      messageText: e.target.value // Everytime the value of the input has changed take its value and put it inside our state object.
+                                    // This allows us to later send that saved input to the server.
     });
   },
+
   render: function () {
     return (<div className='row'>
                 <div className='col s12'>
-                  <section className='new-message-form'>
-                    <div className="input-field col s9 c9">
+                  <section className='new-message-form card-panel'>
+                    <div className="input-field col s11 c11">
                       <input placeholder="hello world"
                         id="message[body]"
                         type="text"

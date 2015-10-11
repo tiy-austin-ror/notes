@@ -11,26 +11,25 @@ html, body, main, .messages {
 
 .new-message-form {
   background: white;
-  border-top: 1px solid gray;
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   padding: 10px;
+  padding-left: 2rem;
+  input {
+    background: white;
+  }
 }
 
 .messages {
   background: white;
   border-bottom: 1px solid gray;
   min-height: 100%;
-  display: flex;
-  flex-direction: column;
+  height: 800px;
   overflow-y: scroll;
   > .message {
     padding: 15px 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     &:hover {
       background: #eceff1;
     }
