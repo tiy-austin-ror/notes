@@ -20,6 +20,7 @@
 //= require_tree .
 
 $(".button-collapse").sideNav();
+
 $(window).on('resize', function () {
   $('.messages').height($(window).height() - (65 + 75));
 });

@@ -1,0 +1,4 @@
+<h2>Posts for <%= params[:name].titleize %></h2>
+<ul>
+  <%= render partial: 'shared/post_list', locals: { posts: @posts } %>
+</ul>
