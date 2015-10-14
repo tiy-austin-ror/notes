@@ -1,0 +1,97 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+header {
+  background: #333;
+  padding: 20px;
+  border-radius: 0px 0px 15px 15px;
+  color: white;
+  h1 {
+    display: inline;
+    width: 200px;
+    a {
+      color: white;
+      &:hover {
+        transition: all 0.25s;
+        color: gray;
+        border-bottom: 0;
+        text-decoration:none;
+      }
+    }
+  }
+  nav {
+    float:right;
+    a {
+      color: white;
+      text-decoration: none;
+      &:hover {
+        color:white;
+        text-decoration: none;
+        border-bottom: 2px solid white;
+      }
+    }
+    ul {
+      list-style: none;
+      margin-top: 10px;
+      margin-bottom: 0;
+      li {
+        float:left;
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+.actions {
+  margin: 10px;
+
+  .row p {
+    margin-bottom: 1px;
+    color: #ACACAC;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.item {
+  margin: 0px 10px 25px 10px;
+  vertical-align: top;
+  display: inline-block;
+  border: 1px solid black;
+  height: 290px;
+  width: 188px;
+  transition: all 0.4s;
+
+  &:hover {
+    box-shadow: 2px 2px 2px #AFAFAF;
+    transition: all 0.4s;
+  }
+
+  .icon {
+    display: block;
+    margin: 10px auto;
+    width: 150px;
+    height: auto;
+    border-radius: 100%;
+    border: 1px solid gray;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.sidebar {
+  border: 1px solid gray;
+  padding: 20px;
+  height: 500px;
+  width: 100%;
+
+  .cart-remove {
+    float:right;
+  }
+}
