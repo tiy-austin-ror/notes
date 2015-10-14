@@ -43,4 +43,5 @@ var Messages = React.createClass({
         </section>
       );
     }
+  }
 });
