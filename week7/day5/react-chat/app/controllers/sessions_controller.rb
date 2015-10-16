@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_filter :authenticate_user #Don't make the user have to login before viewing the login page.
+  skip_before_filter :authenticate_user  #Don't make the user have to login before viewing the login page.
 
   def new #login page
   end

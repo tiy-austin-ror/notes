@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ReactChat</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <main class='blue-grey'>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">React Chat</a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><%= link_to('All Rooms', rooms_path) %></li>
-          <li><%= link_to('All Users', users_path) %></li>
-          <% if user_logged_in? %>
-            <li><%= link_to('Logout', logout_path) %></li>
-          <% else %>
-            <li><%= link_to('Login', login_path) %></li>
-            <li><%= link_to('Sign up', new_user_path) %></li>
-          <% end %>
-        </ul>
-        <ul class="side-nav" id="mobile-demo">
-          <li><%= link_to('All Rooms', rooms_path) %></li>
-          <li><%= link_to('All Users', users_path) %></li>
-          <% if user_logged_in? %>
-            <li><%= link_to('Logout', logout_path, method: :delete) %></li>
-          <% else %>
-            <li><%= link_to('Login', login_path) %></li>
-            <li><%= link_to('Sign up', new_user_path) %></li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
-    <div class='container'>
-      <div class='row'>
-        <div class='m12'>
-          <%= yield %>
+  <head>
+    <title>ReactChat</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <main class='blue-grey'>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo">React Chat</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><%= link_to('All Rooms', rooms_path) %></li>
+            <li><%= link_to('All Users', users_path) %></li>
+            <% if user_logged_in? %>
+              <li><%= link_to('Logout', logout_path, method: :DELETE) %></li>
+            <% else %>
+              <li><%= link_to('Login', login_path) %></li>
+              <li><%= link_to('Sign up', new_user_path) %></li>
+            <% end %>
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
+            <li><%= link_to('All Rooms', rooms_path) %></li>
+            <li><%= link_to('All Users', users_path) %></li>
+            <% if user_logged_in? %>
+              <li><%= link_to('Logout', logout_path, method: :DELETE) %></li>
+            <% else %>
+              <li><%= link_to('Login', login_path) %></li>
+              <li><%= link_to('Sign up', new_user_path) %></li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+      <div class='container'>
+        <div class='row'>
+          <div class='m12'>
+            <%= yield %>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-</body>
+    </main>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </body>
 </html>
