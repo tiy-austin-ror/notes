@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Blogs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= blog.title %></td>
+        <td><%= truncate(blog.body, length: 50) %></td>
+        <%= hidden_field_tag(:blog_id, blog.id, class: 'hidden-blog-id') %>
+        <td><%= react_component('Favorite', blogID: blog.id) %></td>
+        disable_with: "Done", class: 'btn btn-xs btn-default favorite-button' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Blog', new_blog_path %>

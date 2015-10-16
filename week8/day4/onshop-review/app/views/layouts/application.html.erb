@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Onshop</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link media="all" rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.5/darkly/bootstrap.min.css'/>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <header>
+        <h1><%= link_to 'OnShip', root_path %><small>"Buy our Robots"</small></h1>
+        <nav>
+          <ul>
+            <li><%= link_to('Items', items_path) %></li>
+            <% if user_logged_in? %>
+              <li><%= link_to('Your Account', user_path(current_user)) %></li>
+              <li><%= link_to('Logout', logout_path, method: :DELETE) %></li>
+            <% else %>
+              <li><%= link_to('Create Account', new_user_path) %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </header>
+      <p><!-- Don't add an empty p tag for spacing like this --></p>
+      <% if notice %>
+        <div class="alert alert-warning alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p class="notice"><%= notice %></p>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p class="alert"><%= alert %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-9'>
+      <%= yield %>
+    </div>
+    <div class='col-md-3'>
+      <%= render partial: 'shared/sidebar' %>
+    </div>
+  </div>
+</div>
+</body>
+</html>

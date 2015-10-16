@@ -1,0 +1,11 @@
+<h1>Thank you for your purchase!</h1>
+
+<section class='cart'>
+  <h2>Your Purchased Items</h2>
+  <% @cart.items.each do |item| %>
+    <small><%= item.display_price %> - <%= truncate(item.name) %></small>
+  <% end %>
+  <h3>Total: <%= number_to_currency(@cart.price) %></h3>
+</section>
+
+<%= link_to "Shop some more!", root_url(host: 'https://onshop.herokuapp.com') %>
