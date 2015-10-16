@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Justin",
+    "age": 99,
+    "foods":[
+      "apple",
+      "sushi",
+      "bear"
+    ]
+  },
+  {
+    "name": "Katie",
+    "age": 101,
+    "foods":[
+      "tacos",
+      "ice cream"
+    ]
+  }
+]

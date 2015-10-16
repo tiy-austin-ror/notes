@@ -1,0 +1,13 @@
+<h2>All (<%= @wits.length %>) Wits</h2>
+
+<% if @wits.length < 1 %>
+ <h3>No wits to display! :( </h3>
+<% end %>
+<ul>
+  <% @wits.each do |wit| %>
+    <li><%= wit.id %> <%= wit.message %> by <%= wit.user.username %> </li>
+  <% end %>
+</ul>
+
+<%= previous_page_link(@page) %>
+<%= next_page_link(@page, @wits) %>

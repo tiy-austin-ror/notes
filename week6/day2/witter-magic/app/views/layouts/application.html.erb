@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Witter</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-12'>
+        <header>
+          <nav>
+            <ul>
+              <li><%= link_to 'Home', root_url %></li>
+              <li><%= link_to 'Users', users_path %></li>
+              <li><%= link_to 'Messages', messages_path %></li>
+            </ul>
+          </nav>
+          <% if alert || notice %>
+            <div class='flash-messages'>
+              <p class='alert'><%= alert %></p>
+              <p class='notice'><%= notice %></p>
+            </div>
+          <% end %>
+        </header>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-12'>
+        <main>
+          <%= yield %>
+          <%= params.inspect %>
+        </main>
+      </div>
+    </div>
+    <div class='row'>
+      <footer>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

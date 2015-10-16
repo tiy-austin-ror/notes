@@ -1,0 +1,14 @@
+<h2>Welcome to My blog</h2>
+
+<h3>Most Popular Posts</h3>
+<div class='btn btn-sm btn-default' id='mostPopular'>Go To Most Popular</div>
+<ol id='most-popular-posts'>
+  <%= render partial: 'shared/post_list', locals: { posts: @popular_posts } %>
+</ol>
+
+<h3>Categories</h3>
+<ul>
+  <% @categories.each do |cat| %>
+    <%= content_tag(:li, link_to(cat, category_path(cat))) %>
+  <% end %>
+</ul>

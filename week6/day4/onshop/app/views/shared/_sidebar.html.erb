@@ -1,0 +1,13 @@
+<div class='col-md-2'>
+  <section class='sidebar'>
+    <h2>Cart</h2>
+    <h3>$<%= (@cart_price || 0)%></h3>
+    <% @cart_items.each do |item| %>
+      <p><%= link_to('x', remove_cart_item_path(item),
+        class: 'btn btn-danger btn-xs',
+        method: :DELETE,
+        data: { confirm: "Do you want to delete from cart?" }) %><small><%= item.name %></small></p>
+    <% end %>
+    <%= link_to 'Checkout', '#', class: 'btn btn-primary btn-large' %>
+  </section>
+</div>

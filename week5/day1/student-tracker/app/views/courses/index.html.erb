@@ -1,0 +1,8 @@
+<section class='courses'>
+  <h2>Courses</h2>
+  <% courses.each do |course| %>
+    <p>
+      <a href='/courses/<%= course.id %>/students'><%= course.name %></a>
+   </p>
+  <% end %>
+</section>

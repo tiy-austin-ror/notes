@@ -1,0 +1,40 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+
+.item {
+  margin: 10px;
+  vertical-align: top;
+  display: inline-block;
+  border: 1px solid black;
+  height: 250px;
+  width: 200px;
+  transition: all 0.4s;
+
+  &:hover {
+    box-shadow: 2px 2px 2px #AFAFAF;
+    transition: all 0.4s;
+  }
+
+  .icon {
+    display: block;
+    margin: 10px auto;
+    width: 150px;
+    height: auto;
+    border-radius: 100%;
+    border: 1px solid gray;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.sidebar {
+  border: 1px solid gray;
+  padding: 20px;
+  height: 500px;
+  width: 100%;
+}

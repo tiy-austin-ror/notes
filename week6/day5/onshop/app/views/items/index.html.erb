@@ -1,0 +1,30 @@
+<div class='row'>
+  <div class='col-md-12'>
+    <section class='items'>
+      <div class='actions'>
+        <div class='row'>
+          <div class='col-md-3'>
+            <p><small>Sort by field</small></p>
+            <%= action_link_to :order, :price %>
+            <%# Above is a helper to do below %>
+            <%# link_to "Price", params.merge(order: :price), class: 'btn btn-default btn-sm'%>
+            <%# Linking to the params hash will link to the same page you are on currently %>
+            <%= action_link_to :order, :name %>
+            <%= action_link_to :order, :quantity %>
+          </div>
+          <div class='col-md-9'>
+            <p><small>Order</small></p>
+            <%= action_link_to :sort, :ASC, 'Ascending'   %>
+            <%= action_link_to :sort, :DESC, 'Descending' %>
+          </div>
+        </div>
+      </div>
+      <% @items.each do |item| %>
+        <%= render partial: 'item', locals: { item: item } %>
+      <% end %>
+      <div class='pagination-container'>
+        <%= paginate @items %>
+      </div>
+    </section>
+  </div>
+</div>

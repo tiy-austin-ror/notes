@@ -1,0 +1,9 @@
+<h2>All (<%= wits.length %>) Wits</h2>
+
+<%= link_to("New Wit", new_wit_path) %>
+
+<ul>
+  <% wits.each do |wit| %>
+    <li><%= wit.message %> by <%= wit.user.username %> </li>
+  <% end %>
+</ul>

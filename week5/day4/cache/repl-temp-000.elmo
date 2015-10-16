@@ -1,0 +1,36 @@
+Elm.Repl = Elm.Repl || {};
+Elm.Repl.make = function (_elm) {
+   "use strict";
+   _elm.Repl = _elm.Repl || {};
+   if (_elm.Repl.values)
+   return _elm.Repl.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Repl";
+   var tsol = {ctor: "_Tuple0"};
+   var Circle = {ctor: "Circle"};
+   var Square = {ctor: "Square"};
+   var List = {ctor: "List"};
+   var Entity = function (a) {
+      return {ctor: "Entity"
+             ,_0: a};
+   };
+   var Position = F2(function (a,
+   b) {
+      return {ctor: "Position"
+             ,_0: a
+             ,_1: b};
+   });
+   _elm.Repl.values = {_op: _op
+                      ,Position: Position
+                      ,Entity: Entity
+                      ,List: List
+                      ,Square: Square
+                      ,Circle: Circle
+                      ,tsol: tsol};
+   return _elm.Repl.values;
+};

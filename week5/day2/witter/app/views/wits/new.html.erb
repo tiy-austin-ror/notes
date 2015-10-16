@@ -1,0 +1,24 @@
+<h2>New Wit</h2>
+
+<!-- <form action='/wits' method='POST'>
+  <p>
+    <label for='message'>Message</label>
+    <input name='message' type='text'/>
+  </p>
+  <p>
+    <label for='user_id'>User ID</label>
+    <input name='user_id' type='number'/>
+  </p>
+  <input type='submit'/>
+</form> -->
+<%= form_for(wit) do |f| %>
+  <p>
+  <%= f.label :message %>
+  <%= f.text_field :message %>
+  </p>
+  <p>
+  <%= f.label :user_id %>
+  <%= f.select :user_id, user_options, include_blank: true %>
+  </p>
+  <%= f.submit %>
+<% end %>

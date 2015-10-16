@@ -1,0 +1,7 @@
+<p>
+  <small><%= item.display_price %> - <%= truncate(item.name, length: 20) %></small>
+  <%= link_to('remove', remove_cart_item_path(item),
+        class: 'btn btn-danger btn-xs cart-remove',
+        method: :DELETE,
+        data: { confirm: "Do you want to delete #{item.name}?" }) %>
+</p>

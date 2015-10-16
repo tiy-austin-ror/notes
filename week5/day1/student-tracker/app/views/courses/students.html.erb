@@ -1,0 +1,10 @@
+<h2>Students for <%= course.name.titleize %></h2>
+
+<% students.each do |student| %>
+  <p>
+    <a href='/students/<%= student.id %>'>
+      <%= student.first_name %> <%= student.last_name %>
+    </a>
+  <p>
+
+<% end %>

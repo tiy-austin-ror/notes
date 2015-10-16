@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StudentTracker</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Student Tracker! <small> <%= Time.now.strftime("at %I:%M%p") %> </small></h1>
+
+    <nav>
+      <a href="/students">Students</a>
+      <a href="/courses">Courses</a>
+    </nav>
+  </header>
+  <main>
+    <%= yield %>
+  </main>
+  <footer>
+    
+  </footer>
+</body>
+</html>
