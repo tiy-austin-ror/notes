@@ -1,18 +1,3 @@
-# Deck
-# - The cards
-# + Draw
-# + Shuffle
-
-# Card (* Value Object *)
-# - Suit
-# - Value
-
-# Player
-# - Hand/Deck
-# - Score
-# - Name
-# + Play a Card/Turn (Draw?)
-
 require_relative '../lib/deck'
 require_relative '../lib/player'
 
