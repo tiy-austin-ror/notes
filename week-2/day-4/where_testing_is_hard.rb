@@ -49,3 +49,6 @@ test_say_hello_to_user
 
 
 # Randomness
+# Tests should be deterministic, so testing something that is random is hard.
+# The best piece of advice for testing a piece of code that should be random is
+# to make the code not random while testing.

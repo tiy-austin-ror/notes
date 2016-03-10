@@ -1,5 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
+# These requires up above include minitest in this file
+# so when you run the file it will run as a test suite
 
 class Card
   attr_reader :suit, :value
@@ -22,6 +24,7 @@ end
 
 
 class CardTest < Minitest::Test
+  # All Tests should be in their own method and begin with "test_"
   def test_card_creation
     card = Card.new(:hearts, 10)
 
@@ -37,5 +40,7 @@ class CardTest < Minitest::Test
     assert_equal 4, four.display_value
     assert_equal "Q", queen.display_value
     assert_equal "K", king.display_value
+    #assert_equal should be the expected value followed by the actual value
+    # The "actual value" is when you run the method you are trying to test
   end
 end
