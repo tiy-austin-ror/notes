@@ -1,7 +1,8 @@
 module GameLibrary
   module BlackJack
     class Player
-      # blackjack
+      def initialize
+      end
     end
   end
 end
