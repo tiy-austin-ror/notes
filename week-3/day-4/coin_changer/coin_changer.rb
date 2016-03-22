@@ -19,7 +19,7 @@ class CoinChanger
     #     change
     # end
 
-    remaining_change = n
+    remaining_change = n - 1
     purse = []
     if n >= 25
       purse.push([25] * (n / 25))
