@@ -1,0 +1,36 @@
+: 1459350223:0;rails new school
+: 1459350233:0;ls
+: 1459350235:0;cd school
+: 1459350236:0;ls
+: 1459350278:0;vim Gemfile
+: 1459350310:0;bundle
+: 1459350328:0;ls
+: 1459351046:0;rails generate migration create_schools name:string motto:string location:string
+: 1459351056:0;vim
+: 1459351207:0;rails g migration create_teachers name:string age:integer hire_date:date school:belongs_to
+: 1459351225:0;vim
+: 1459351410:0;rails g migration create_students name:string age:integer school:belongs_to
+: 1459351492:0;rails g migration create_courses name:string duration:integer teacher:belongs_to
+: 1459351533:0;rails g migration create_enrollments course:belongs_to studnt:belongs_to
+: 1459351544:0;rails d migration create_enrollments course:belongs_to studnt:belongs_to
+: 1459351582:0;rails g migration create_enrollments course:belongs_to student:belongs_to
+: 1459351584:0;vim
+: 1459351753:0;tree app/models
+: 1459351768:0;rake db:migrate
+: 1459351775:0;vim
+: 1459351987:0;touch app/models/enrollment.rb app/models/student.rb app/models/teacher.rb app/models/school.rb app/models/course.rb
+: 1459351988:0;vim
+: 1459352497:0;atom .
+: 1459353081:0;rake db:seed
+: 1459353148:0;rake db:drop db:migrate db:seed
+: 1459353183:0;vim
+: 1459353232:0;rake db:reset
+: 1459353246:0;rails c
+: 1459354045:0;vim
+: 1459354342:0;rails c
+: 1459355416:0;rake db:reset
+: 1459355435:0;vim
+: 1459355508:0;rake db:reset
+: 1459355523:0;rails c
+: 1459356466:0;rails g controller schools index
+: 1459356564:0;rails s
