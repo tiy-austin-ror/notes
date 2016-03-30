@@ -1,0 +1,20 @@
+<h1>Schools Dashboard <small>Welcome district manager</small></h1>
+
+<% @schools.each do |school| %>
+  <h4>
+    <%= school.name %>
+    <% if school.teacher_to_student_ratio > 10 %>
+      <a href="#hire-me">Now Hiring Teachers</a>
+    <% end %>
+  </h4>
+  <p>
+    Total Teachers: <%= school.teachers_count %>
+  </p>
+  <p>
+    Total Students: <%= school.students_count %>
+  </p>
+  <p>
+    Student to teacher ratio is : <%= school.teacher_to_student_ratio %> to 1
+
+  </p>
+<% end %>
