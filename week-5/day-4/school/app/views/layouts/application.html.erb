@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>School</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css' />
+</head>
+<body>
+
+<nav>
+  <%= link_to "Home", root_path %>
+</nav>
+<%= flash[:alert] %>
+<%= flash[:notice] %>
+
+<div class='container'>
+  <%= yield %>
+</div>
+
+</body>
+</html>

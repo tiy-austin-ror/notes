@@ -1,0 +1,36 @@
+
+<div class='row'>
+  <div class='twelve columns'>
+
+    <% @school.errors.full_messages.each do |msg| %>
+      <p class='form-error'> <%= msg %> </p>
+    <% end %>
+
+    <%= form_for(@school) do |f| %>
+      <div class='row'>
+        <div class='three columns'>
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'input-field name', placeholder: "Broward Elementary" %>
+        </div>
+
+        <div class='three columns'>
+          <%= f.label :motto %>
+          <%= f.text_field :motto, class: 'input-field motto', placeholder: "We will rock you" %>
+        </div>
+
+        <div class='three columns'>
+          <%= f.label :location %>
+          <%= f.select :location, options_for_select([ ['United States of America', 'usa'],
+                                                       ['United Kingdom', 'uk'],
+                                                       ["The Iron Nation", 'tiy'] ], selected: @school.location), { include_blank: true }, class: 'select-field location' %>
+
+        </div>
+      </div>
+      <div class='row'>
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<img src="https://pbs.twimg.com/profile_images/2557016514/0sdpjdwj63wnkjgleug7.png" style='border: none; float: right; -moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: "FlipH";'/ />
+![]

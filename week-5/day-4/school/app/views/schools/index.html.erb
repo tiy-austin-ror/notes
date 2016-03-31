@@ -1,0 +1,18 @@
+<h1>Schools Dashboard <small>Welcome district manager</small></h1>
+
+<%= hello_header %>
+
+<% @schools.each do |school| %>
+  <h4>
+    <%= link_to school.name, school_path(school.id) %>
+  </h4>
+  <p>
+    Total Teachers: <%= school.teachers_count %>
+  </p>
+  <p>
+    Total Students: <%= school.students_count %>
+  </p>
+  <p>
+    <%= teacher_to_student_ratio(school) %>
+  </p>
+<% end %>

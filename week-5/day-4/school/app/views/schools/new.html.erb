@@ -1,0 +1,51 @@
+<h3>create a new school</h3>
+<!--
+<form action='/school' method="POST" id="create_school" class='form school-form'>
+  <fieldset>
+    <label for="name">Name</label>
+    <input type='text' name='name' id='name' placeholder="Broward Elementary" />
+  </fieldset>
+
+  <fieldset>
+    <label for="name">Motto</label>
+    <input type='text' name='motto' id='motto' placeholder="We will rock you"/>
+  </fieldset>
+
+  <select name='country', id='country'>
+    <option value='usa'>United States of America 🇺🇸</option>
+    <option value='uk'>UK</option>
+    <option value='tiy'>The Iron Nation</option>
+  </select>
+
+  <input type='submit' name='submit' id='submit' value="Create School"/>
+</form> -->
+<%= render partial: 'form' %>
+<!--
+<div class='row'>
+  <div class='twelve columns'>
+    <%= form_for(@school) do |f| %>
+      <div class='row'>
+        <div class='three columns'>
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'input-field name', placeholder: "Broward Elementary" %>
+        </div>
+
+        <div class='three columns'>
+          <%= f.label :motto %>
+          <%= f.text_field :motto, class: 'input-field motto', placeholder: "We will rock you" %>
+        </div>
+
+        <div class='three columns'>
+          <%= f.label :location %>
+          <%= f.select :location, options_for_select([ ['usa', 'United States of America'],
+                                                       ['uk', 'United Kingdom'],
+                                                       ['tiy', "The Iron Nation"] ].map(&:reverse)), class: 'select-field location' %>
+
+        </div>
+      </div>
+      <div class='row'>
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </div>
+</div> -->
