@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+
+# This script will create the folder structure and files
+# needed for doing a kata using TDD.
+
+kata_name = (ARGV[0] || 'morning')
+dir_name =  kata_name + "_kata"
+
+# These are all the commands we will run
+# in the order in which we will run them.
+commands = [
+  "mkdir #{dir_name}",
+  "touch #{dir_name}/Gemfile",
+  "mkdir #{dir_name}/lib",
+  "mkdir #{dir_name}/test",
+  "touch #{dir_name}/test/#{kata_name.downcase}_test.rb",
+  "touch #{dir_name}/lib/#{kata_name.downcase}.rb",
+]
+
+commands.each do |command|
+  puts command
+  `#{command}`
+end
+
+File.open("#{dir_name}/Gemfile", "w") do |f|
+  f.puts("source 'https://rubygems.org'")
+  f.puts("")
+  f.puts("gem 'mintest'")
+  f.puts("gem 'pry'")
+end
+
+File.open("#{dir_name}/test/#{kata_name.downcase}_test.rb", "w") do |f|
+  f.puts("require 'minitest/autorun'")
+  f.puts("require 'minitest/pride'")
+  f.puts("require_relative '../lib/#{kata_name.downcase}'")
+  f.puts("")
+  f.puts("class #{kata_name.capitalize}Test < Minitest::Test")
+  f.puts("  def test_working")
+  f.puts("    assert_equal(2, (1 + 1))")
+  f.puts("  end")
+  f.puts("end")
+end
