@@ -1,0 +1,10 @@
+<h1>Bloggr</h1>
+<p>The Raddest blogging site ever.</p>
+
+<h3>Posts</h3>
+
+<% @posts.each do |post| %>
+  <div class='box'>
+    <%= link_to post.title, post, class: 'btn btn-default' if post.published? %>
+  </div>
+<% end %>

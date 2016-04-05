@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bloggr</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class='navbar navbar-default'>
+  <ul class="nav navbar-nav navbar">
+    <li>
+      <%= link_to "Write a New Post", new_post_path, class: "btn btn-default" %>
+    </li>
+  </ul>
+</nav>
+
+<div class='container'>
+  <%= flash[:notice] %>
+  <%= flash[:alert] %>
+  
+  <%= yield %>
+</div>
+
+</body>
+</html>
