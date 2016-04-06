@@ -1,0 +1,39 @@
+<article>
+  <header>
+    <h1><%= @post.title %></h1>
+    <small><%= @post.category %></small>
+  </header>
+  <p> <%= raw @post.body %> </p>
+  <footer>
+    <div class='actions'>
+      <%= link_to 'All Posts', posts_path %>
+      <% if logged_in? %>
+        <%= link_to 'Edit', edit_post_path(@post) %>
+      <% end %>
+    </div>
+  </footer>
+</article>
+
+<section class='comments'>
+  <h3> Comments (<%= @post.comments.count %>) </h3>
+  <hr>
+  <%= form_for(@comment) do |f| %>
+    <%= f.hidden_field :post_id, value: @post.id %>
+    <p>
+      <%= f.label :username %> <%= f.text_field :username %>
+    </p>
+    <p>
+      <%= f.label :body %> <%= f.text_area :body %>
+    </p>
+    <p> <%= f.submit "New Comment" %> </p>
+  <% end %>
+  <hr>
+  <ul>
+    <% @post.comments.each do |comment| %>
+      <li>
+        <strong><%= comment.username %></strong>:
+        <%= comment.body %>
+      </li>
+    <% end %>
+  </ul>
+</section>
