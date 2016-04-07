@@ -1,0 +1,6 @@
+<h2> Add a new Collaborator to "<%= @post.title %>"</h2>
+<%= form_for(@editor) do |f| %>
+  <%= f.hidden_field(:post_id, value: @post.id) %>
+  <%= f.collection_select(:user_id, @users, :id, :name) %>
+  <%= f.submit %>
+<% end %>

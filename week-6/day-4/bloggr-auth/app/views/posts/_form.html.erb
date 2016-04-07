@@ -1,0 +1,38 @@
+<hr />
+<div class='col-md-offset-2 col-md-6'>
+
+  <% if @post.errors.any? %>
+    <section>
+      <ul>
+        <% @post.errors.full_messages.each do |e| %>
+          <li>
+            <%= e %>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+
+  <%= form_for(@post, class: 'form') do |f| %>
+
+    <div class='row'>
+      <div class='col-md-12'>
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-md-12'>
+        <%= f.label :body %>
+        <%= f.text_area :body, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-md-12'>
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
