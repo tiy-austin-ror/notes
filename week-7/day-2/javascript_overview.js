@@ -1,46 +1,47 @@
-// var name = "Justin";
-//
-// console.log(name);
-//
-// /* Arrays in JS look like they do in Ruby */
-// var foods = [
-//   "apple",
-//   "sushi",
-//   "tacos",
-//   "candy"
-// ];
-//
-// // If statements
-// if (foods.length > 3) {
-//   console.log("I have " + foods.length + " foods");
-// } else {
-//   console.log("Not enough food");
-// }
-//
-// /* Defining a JS 'Object' like a ruby Hash
-//   - A JS Object is a Key/Value store.
-//   - Like a ruby hash, a JS obj can hold any other js type.
-// */
-// var person = {
-//   name: "Justin",
-//   age: 99,
-//   activity: "DS3"
-// };
-//
-// console.log(person);
-// // console.debug(person);// Does not work in Node
-// // console.error(person);
-// console.assert(person == person, "Should be equal");
+
+var name = "Justin";
+
+console.log(name);
+
+/* Arrays in JS look like they do in Ruby */
+var foods = [
+    "apple",
+    "sushi",
+    "tacos",
+    "candy"
+];
+
+// If statements
+if (foods.length > 3) {
+    console.log("I have " + foods.length + " foods");
+} else {
+    console.log("Not enough food");
+}
+
+/* Defining a JS 'Object' like a ruby Hash
+   - A JS Object is a Key/Value store.
+   - Like a ruby hash, a JS obj can hold any other js type.
+ */
+var person = {
+    name: "Justin",
+    age: 99,
+    activity: "DS3"
+};
+
+console.log(person);
+// console.debug(person);// Does not work in Node
+// console.error(person);
+console.assert(person == person, "Should be equal");
 
 
 /* In javascript we use functions */
 // We also use camelCase for our names
 var sayHello = function (name) {
-  if (name === undefined) {
-    console.error("Name was not given");
-  } else {
-    console.log("Hello " + name + "!");
-  }
+    if (name === undefined) {
+        console.error("Name was not given");
+    } else {
+        console.log("Hello " + name + "!");
+    }
 };
 
 // In JS, you must use () after the function name to call it.
@@ -50,7 +51,7 @@ sayHello() // <- This is 'calling' the function.
 
 
 var addTwo = function (n) {
-  return n + 2;
+    return n + 2;
 };
 
 console.log(addTwo(5));
@@ -62,13 +63,13 @@ var square = function (n) { return n * n; };
 console.log(square(double(2)));
 
 var squareDouble = function (n) {
-  return square(double(n));
+    return square(double(n));
 };
 
 console.log(squareDouble(2));
 
 var doBoth = function (fnA, fnB, n) {
-  return fnA(fnB(n));
+    return fnA(fnB(n));
 }
 
 console.log(doBoth(square, double, 2));
@@ -79,42 +80,42 @@ console.log(doBoth(double, double, 2));
 //We use Objects in js to fake classes;
 
 var aaron = {
-  name: "Aaron",
-  title: "Instructor",
-  favoriteFood: "Nutella",
-  favoriteLanguage: "Js",
-  teach: function () {
-    console.log('javasscripts javascripts yavascriptz');
-  },
-  describe: function () {
-    console.log("My name is " + this.name);
-  }
+    name: "Aaron",
+    title: "Instructor",
+    favoriteFood: "Nutella",
+    favoriteLanguage: "Js",
+    teach: function () {
+        console.log('javasscripts javascripts yavascriptz');
+    },
+    describe: function () {
+        console.log("My name is " + this.name);
+    }
 };
 
 aaron.teach();
 aaron.describe();
 
 var Person = function (name, title, food, lang) {
-  return {
-    name: name,
-    title: title,
-    favoriteFood: food,
-    favoriteLanguage: lang,
-    describe: function () {
-      console.log("My name is " + this.name);
-      console.log("I am a " + this.title);
-      console.log("My fav food is totes " + this.favoriteFood);
-    }
-  };
-}
+    return {
+        name: name,
+        title: title,
+        favoriteFood: food,
+        favoriteLanguage: lang,
+        describe: function () {
+            console.log("My name is " + this.name);
+            console.log("I am a " + this.title);
+            console.log("My fav food is totes " + this.favoriteFood);
+        }
+    };
+};
 
 var Instructor = function (name, food, lang) {
-  var person = Person(name, 'Instructor', food, lang);
-  person['teach'] = function () {
-    console.log(lang + " " + lang + " " + lang + "!");
-  }
-  return person;
-}
+    var person = Person(name, "Instructor", food, lang);
+    person["teach"] = function () {
+        console.log(lang + " " + lang + " " + lang + "!");
+    };
+    return person;
+};
 
 // var me = Person('justin', 'Instructor', 'sushi', 'Ruby');
 // console.log(Person);
@@ -130,22 +131,22 @@ me.teach();
 
 //This is how we iterate in JS
 [me, aaron].forEach(function (person) {
-  console.log(person.name);
+    console.log(person.name);
 });
 /*
-You can think of the above code as the ruby code below
-[me, aaron].each do |person|
-  puts person.name
-end
-*/
+   You can think of the above code as the ruby code below
+   [me, aaron].each do |person|
+   puts person.name
+   end
+ */
 // This is how we do a loop in JS
 for (var i = 0; i < 100; i++) {
-  console.log(i);
+    console.log(i);
 }
 
 
 ["1", "2", "3", "10", "25", '40'].forEach(function (numStr) {
-  console.log(parseInt(numStr));
+    console.log(parseInt(numStr));
 });
 
 console.log([1, 2, 3, 4].map(double));
