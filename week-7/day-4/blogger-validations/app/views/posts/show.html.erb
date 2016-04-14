@@ -1,0 +1,46 @@
+<h2><%= @post.title %><small><%= 'published' if @post.published? %></small></h2>
+<% if @post.id > 1 %>
+  <%= link_to "Previous Post", post_path(@post.prev), class: 'btn btn-default' %>
+<% else %>
+  <%= link_to "Last Post", post_path(@post.prev), class: 'btn btn-default' %>
+<% end %>
+
+<% if @post.id < Post.count %>
+  <%= link_to "Next Post", post_path(@post.next), class: 'btn btn-default' %>
+<% else %>
+  <%= link_to "First Post", post_path(@post.next), class: 'btn btn-default' %>
+<% end %>
+
+<% if signed_in? %>
+  <% unless @post.published? %>
+    <%= link_to "PUBLISH", publish_post_path(@post), method: :PUT, class: 'btn btn-info btn-large' %>
+  <% end %>
+
+  <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-success' %>
+  <span class='spacer'></span>
+  <%= link_to "Destroy", post_path(@post), method: :DELETE, data: { confirm: "Are you sure you want to delete this post?" }, class: 'btn btn-danger' %>
+<% end %>
+
+<hr />
+<section>
+  <%= hidden_field_tag(:id, @post.id, id: 'post-id') %>
+  <div class='md'><%= Kramdown::Document.new(@post.body).to_html.html_safe %></div>
+</section>
+<section class='comments'>
+  <h3>Comments (<span id='comment-count'><%= @comments.count %></span>) <%= link_to "New Comment", '#', class: 'btn btn-default', id: 'show-new-comment' %></h3>
+  <hr />
+    <div id='new-comment-form' >
+      <%= form_for([@post, @comment], remote: true) do |f| %>
+        <%= f.label :body %>
+        <%= f.text_field :body %>
+
+        <%= f.submit class: 'btn' %>
+      <% end %>
+    </div>
+  <hr />
+  <div id='comment-storage'>
+    <% @comments.each do |comment| %>
+      <p><%= comment.body %></p>
+    <% end %>
+  </div>
+  </section>

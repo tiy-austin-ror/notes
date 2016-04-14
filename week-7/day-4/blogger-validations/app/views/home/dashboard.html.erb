@@ -1,0 +1,13 @@
+<h1>Bloggr</h1>
+<p>The Raddest blogging site ever.</p>
+
+<div id='quote-container'>
+</div>
+<%= link_to "New Quote", '#', id: 'new-quote' %>
+
+<h3>Posts</h3>
+<% @posts.each do |post| %>
+  <div class='box'>
+    <%= link_to post.title, post, class: 'btn btn-default' if post.published? %>
+  </div>
+<% end %>
