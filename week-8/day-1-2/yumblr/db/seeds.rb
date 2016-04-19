@@ -5,6 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-#
-#
-u = User.create!(email: 'user@example.com', password: 'password')
+
+u = User.create(username: Faker::Internet.user_name, password: 'password')
+
+100.times do
+  u.posts.create({
+    image_url: Faker::Company.logo,
+    body: Faker::Lorem.sentences(rand(1..5)).join(" ")
+  })
+end
