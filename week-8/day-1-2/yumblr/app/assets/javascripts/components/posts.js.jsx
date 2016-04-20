@@ -6,7 +6,7 @@ var Posts = React.createClass({
   render: function() {
     return (
       <div>
-          Posts: {this.props.posts.forEach(function (post) {
+          Posts: {this.props.posts.map(function (post) {
               return (<Post imageUrl={post.image_url} body={post.body} />)
           })}
       </div>
