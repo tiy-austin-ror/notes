@@ -23,6 +23,12 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to todo_path(Todo.last)
   end
 
+  test "should not create todod" do
+    assert_raises(ActionController::ParameterMissing) do
+      post todos_url, params: { }
+    end
+  end
+
   test "should show todo" do
     get todo_url(@todo)
     assert_response :success
