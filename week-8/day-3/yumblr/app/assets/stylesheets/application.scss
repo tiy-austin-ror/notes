@@ -18,6 +18,17 @@
 @import 'bootstrap';
 
 
+.result {
+  padding: 10px;
+  border: 2px solid gray;
+  border-bottom: 1px solid lightgray;
+  background: white;
+  transition: all 0.15s ease;
+  &:hover {
+    background: lighten(yellow, 20%);
+    transition: all 0.05s ease;
+  }
+}
 
 .animate {
   animation: flash 0.2s 1;

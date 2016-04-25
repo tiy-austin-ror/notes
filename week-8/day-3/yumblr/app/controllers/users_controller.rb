@@ -10,6 +10,18 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    respond_to do |format|
+      format.json do
+        render json: @user
+      end
+    end
+  end
+
+  def search
+    users = User.select(:id, :username)
+                .where("username ILIKE '%#{params[:query]}%'")
+                .limit(10)
+    render json: users
   end
 
   # GET /users/new

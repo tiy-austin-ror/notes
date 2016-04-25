@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :tags
   resources :posts
-  resources :users
+  resources :users do
+    collection do
+      get 'search'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
