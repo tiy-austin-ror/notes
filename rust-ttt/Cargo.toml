@@ -1,0 +1,6 @@
+[package]
+name = "rust-ttt"
+version = "0.1.0"
+authors = ["Justin Herrick <justin@justinherrick.com>"]
+
+[dependencies]
