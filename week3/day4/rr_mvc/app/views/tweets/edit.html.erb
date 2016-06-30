@@ -1,0 +1,8 @@
+<h2>Edit an existing Tweet</h2>
+
+<form action='/' method="post" accept-charset="utf-8" id='new-tweet'>
+  <label for='message'>Message</label>
+  <input type='text' name='message' id='message' value=<%= @tweet.message %>/>
+
+  <input type='submit' name='commit' id='edit_message'  />
+</form>
