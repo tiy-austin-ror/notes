@@ -1,0 +1,11 @@
+class Item < ApplicationRecord
+  has_many :orders
+
+  def users
+    User.joins("""INNER JOIN orders
+                  ON orders.user_id = users.id
+                  INNER JOIN items
+                  ON items.id = orders.item_id""").where("orders.item_id = ?", self.id)
+  end
+end
+
