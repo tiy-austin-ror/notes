@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blogger</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <h1>Blogger</h1>
+      <a href="/comments">Comments</a>
+      <a href="/posts">Posts</a>
+      <a href="/">Home</a>
+    </header>
+
+    <%= yield %>
+
+    <footer>
+      <small>Made with ♥ </small>
+    </footer>
+  </body>
+</html>

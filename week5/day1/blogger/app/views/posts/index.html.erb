@@ -1,0 +1,10 @@
+<h2>All <%= posts.count %> Posts</h2>
+
+<% posts.each do |post| %>
+  <article>
+    <h3><a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
+
+    <p><%= post.body %></p>
+
+  </article>
+<% end %>

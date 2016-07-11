@@ -1,0 +1,15 @@
+<h2><%= post.title %></h2>
+
+<% post.tags.each do |tag| %>
+  <small><%= tag.name %></small>
+<% end %>
+
+
+<p><%= post.body %></p>
+
+
+<h4>Comments: (<%= post.comments.count %>) </h4>
+
+<% post.comments.each do |comment| %>
+  <p> <%= comment.body %> </p>
+<% end %>
