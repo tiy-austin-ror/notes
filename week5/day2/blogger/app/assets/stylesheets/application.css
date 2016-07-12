@@ -1,0 +1,187 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: lightblue;
+}
+
+a:hover {
+  color: #3194b5;
+}
+
+h2, h3, h4 {
+  color: #555;
+  font-family: -apple-system, "Helvetica", Arial, sans-serif;
+}
+
+h4 {
+  margin: 0;
+}
+
+
+header.main-header {
+  overflow: hidden;
+  background: lightblue;
+  color: white;
+
+  padding: 0 10px;
+
+  font-family: -apple-system, "Helvetica", Arial, sans-serif;
+}
+
+header.main-header h1 {
+  float: left;
+  margin: 3px;
+}
+
+header.main-header nav {
+  float: right;
+}
+
+header.main-header nav ul {
+  list-style-type: none;
+}
+
+header.main-header nav li {
+  float: right;
+}
+
+header.main-header a {
+  margin: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+  transition: all 0.4s;
+}
+
+header.main-header a:hover {
+  border-bottom: 20px solid white;
+  transition: all 0.4s;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 980px;
+
+  padding: 0 10px;
+}
+
+.all-posts {
+  overflow: hidden;
+}
+
+.post {
+  box-shadow: 1px 3px 7px lightblue;
+  border-radius: 3px;
+  float: left;
+  width: 220px;
+  height: 400px;
+  margin: 8px;
+  padding: 0 15px;
+  transition: all 0.4s ease;
+}
+
+.post:hover {
+  box-shadow: 0px 4px 9px lightblue;
+  transition: all 0.4s ease;
+}
+
+.post header h3 a {
+  text-decoration: none;
+  font-family: "Helvetica", Arial, sans-serif;
+  color: #555;
+}
+
+.post header h3 a:hover {
+  color: black;
+}
+
+.full-post {
+  display: inline-block;
+  width: 69%;
+  vertical-align: top;
+  height: 100%;
+}
+
+.full-post .tag {
+  color: #AAA;
+  padding: 5px 15px;
+  border-radius: 10%;
+  /* background: red; */
+}
+.full-post .tag::before {
+  content: "#";
+}
+
+.full-post .body {
+  margin: 10px auto;
+  max-width: 500px;
+  line-height: 1.5;
+  font-size: 19px;
+}
+
+.comments {
+  padding-left: 10px;
+  display: inline-block;
+  width: 30%;
+  border-left: 2px solid lightblue;
+}
+
+.new-comment {
+  text-align: center;
+}
+
+.new-comment input[type=submit] {
+  display: block;
+  width: 40%;
+  margin: 4px auto;
+  padding: 10px;
+  font-size: 16px;
+  background: lightblue;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  box-shadow: none;
+  transition: all 0.1s;
+}
+
+.new-comment textarea {
+  border-radius: 3px;
+  padding: 10px;
+  border: 1px solid lightgray;
+  width: 91%;
+}
+
+.new-comment input[type=submit]:hover {
+  background: #3194b5;
+  transition: all 0.1s;
+}
+
+footer small {
+  display: block;
+  color: #FF00e7;
+  text-align: center;
+}

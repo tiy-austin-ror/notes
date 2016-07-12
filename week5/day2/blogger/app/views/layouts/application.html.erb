@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blogger</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="main-header">
+      <h1>Blogger</h1>
+      <nav>
+        <ul>
+          <li><a href="/comments">Comments</a> </li>
+          <li><a href="/posts">Posts</a> </li>
+          <li><a href="/">Home</a> </li>
+        </ul>
+      </nav>
+    </header>
+    <section class='content'>
+      <%= yield %>
+    </section>
+    <footer>
+      <small>Made with ♥ </small>
+    </footer>
+  </body>
+</html>

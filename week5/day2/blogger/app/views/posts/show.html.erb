@@ -1,0 +1,29 @@
+<article class="full-post">
+  <h2><%= post.title %></h2>
+
+  <% post.tags.each do |tag| %>
+    <small class='tag'><%= tag.name %></small>
+  <% end %>
+
+
+  <p class='body'><%= post.body %></p>
+</article>
+
+
+<aside class="comments">
+  <h3>Comments: (<%= post.comments.count %>) </h3>
+
+  <% post.comments.each do |comment| %>
+    <p><%= truncate(comment.body, length: 100) do
+      raw "<a href='/comments/#{comment.id}'>[more]</a>"
+    end %></p>
+  <% end %>
+
+  <div class='new-comment'>
+    <h4>New Comment</h4>
+    <form action="/comments" method="post">
+      <textarea id='body' name='body'></textarea>
+      <input type='submit'/>
+    </form>
+  </div>
+</aside>
