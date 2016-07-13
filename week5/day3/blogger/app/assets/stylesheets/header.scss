@@ -1,0 +1,35 @@
+header.main-header {
+  overflow: hidden;
+  background: $primary-color;
+  color: white;
+  padding: 0 10px;
+  font-family: $display-font;
+
+  h1 {
+    float: left;
+    margin: 3px;
+  }
+
+  nav {
+    float: right;
+    ul {
+      list-style-type: none;
+    }
+    li {
+      float: right;
+    }
+  }
+
+  a {
+    margin: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    transition: all 0.4s;
+    &:hover {
+      border-bottom: 20px solid white;
+      transition: all 0.4s;
+    }
+  }
+}

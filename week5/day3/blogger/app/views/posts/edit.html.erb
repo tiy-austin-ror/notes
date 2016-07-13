@@ -1,0 +1,6 @@
+<%= render 'form', post: post,
+  form_title: "Edit This Post",
+  form_url: "/posts/#{post.id}",
+  form_action: :PUT,
+  submit_text: "Update Post"
+  %>

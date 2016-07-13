@@ -1,0 +1,47 @@
+<h2><%= form_title %></h2>
+
+<div class="form">
+  <% if post.errors.any? %>
+    <% post.errors.full_messages.each do |msg| %>
+      <p> <%= msg %></p>
+    <% end %>
+  <% end %>
+
+  <%= form_tag(form_url, method: form_action) do %>
+    <div class="input-group">
+      <label for="title">Title</label>
+      <%= text_field_tag :title, post.title %>
+    </div>
+
+    <div class="input-group">
+      <label for="body">Body</label>
+      <%= text_area_tag :body, post.body %>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag submit_text %>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+  <!-- <form action="/posts" method="POST">
+    <div class="input-group">
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" value="<%= post.title %>" />
+    </div>
+
+    <div class="input-group">
+      <label for="body">Body</label>
+      <textarea name="body" id="body" >
+        <%= post.body %>
+      </textarea>
+    </div>
+
+    <div class="actions">
+      <input type="submit" name="submit" id="submit" />
+    </div>
+  </form> -->
