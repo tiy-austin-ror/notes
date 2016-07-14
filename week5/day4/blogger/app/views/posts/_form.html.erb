@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="twelve columns">
+    <h4><%= form_title %></h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form twelve columns">
+
+    <div class="row">
+      <div class="twelve columns">
+        <% if post.errors.any? %>
+          <% post.errors.full_messages.each do |msg| %>
+            <p> <%= msg %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <%= form_for(post) do |f| %>
+      <div class="row">
+        <div class="six columns">
+          <div class="input-group">
+            <label for="title">Title</label>
+            <%= f.text_field :title, placeholder: post_placeholder %>
+          </div>
+        </div>
+        <div class="six columns">
+          <div class="input-group">
+            <label for="body">Body</label>
+            <%= f.text_area :body, placeholder: "Lorem Ipsum Unc Tae dae" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+  <!-- <form action="/posts" method="POST">
+    <div class="input-group">
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" value="<%= post.title %>" />
+    </div>
+
+    <div class="input-group">
+      <label for="body">Body</label>
+      <textarea name="body" id="body" >
+        <%= post.body %>
+      </textarea>
+    </div>
+
+    <div class="actions">
+      <input type="submit" name="submit" id="submit" />
+    </div>
+  </form> -->

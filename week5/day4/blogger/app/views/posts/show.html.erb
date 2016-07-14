@@ -1,0 +1,37 @@
+<article class="full-post">
+  <h2>
+    <%= post.title.titleize %>
+    <%= link_to "Edit", edit_post_path(post), class: "edit-button" %>
+  </h2>
+
+  <% post.tags.each do |tag| %>
+    <small class='tag'>
+      <%= tag.name %>
+    </small>
+  <% end %>
+
+  <p class='body'>
+    <%= post.body %>
+  </p>
+</article>
+
+
+<aside class="comments">
+  <h4>Comments: (<%= post.comments.count %>) </h4>
+
+  <% post.comments.each do |comment| %>
+    <p>
+      <%= truncate(comment.body, length: 100) {
+          link_to "[more]", comment_path(comment) } %>
+    </p>
+  <% end %>
+
+  <div class='new-comment'>
+    <h4>New Comment</h4>
+    <%= form_for(comment) do |f| %>
+      <%= f.hidden_field :post_id, value: post.id %>
+      <%= f.text_area :body %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</aside>

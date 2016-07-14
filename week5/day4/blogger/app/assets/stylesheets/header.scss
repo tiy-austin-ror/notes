@@ -1,0 +1,49 @@
+header.main-header {
+  overflow: hidden;
+  margin-bottom: 2rem;
+  background: $primary-color;
+  color: white;
+  padding: 0 10px;
+  font-family: $display-font;
+
+  h1 {
+    margin: 3px;
+    display: inline;
+  }
+
+  nav {
+    ul {
+      list-style-type: none;
+      margin: 2rem auto 0 auto;
+    }
+    li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+
+  a {
+    margin: 0px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    transition: all 0.4s;
+    &:hover {
+      border-bottom: 20px solid white;
+      transition: all 0.4s;
+    }
+  }
+}
+
+@media (min-width: 550px) {
+  nav ul {
+    width: 60%;
+  }
+}
+
+@media (min-width: 475px) {
+  nav ul {
+    width: 70%;
+  }
+}

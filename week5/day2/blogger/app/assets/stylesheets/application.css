@@ -52,8 +52,7 @@ header.main-header {
 }
 
 header.main-header h1 {
-  float: left;
-  margin: 3px;
+  display: inline;
 }
 
 header.main-header nav {
@@ -183,5 +182,9 @@ header.main-header a:hover {
 footer small {
   display: block;
   color: #FF00e7;
+  text-align: center;
+}
+
+.center-align {
   text-align: center;
 }

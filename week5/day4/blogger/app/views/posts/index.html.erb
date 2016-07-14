@@ -1,0 +1,18 @@
+<section class='all-posts'>
+  <header>
+    <h3>All <%= posts.count %> Posts</h3>
+  </header>
+
+  <% posts.each do |post| %>
+    <article class='post'>
+      <header>
+        <h4>
+          <%= link_to post.title, post_path(post) %>
+        </h4>
+      </header>
+      <p class='body'>
+        <%= truncate(post.body, length: 300) %>
+      </p>
+    </article>
+  <% end %>
+</section>

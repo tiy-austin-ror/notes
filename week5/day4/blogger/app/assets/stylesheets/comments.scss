@@ -1,0 +1,33 @@
+
+.comments {
+  padding-left: 10px;
+  display: inline-block;
+  width: 30%;
+  border-left: 2px solid $primary-color;
+}
+
+.new-comment {
+  text-align: center;
+  input[type=submit] {
+    display: block;
+    margin: 4px auto;
+    font-size: 16px;
+    background: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    box-shadow: none;
+    transition: all 0.1s;
+    &:hover {
+      background: #3194b5;
+      transition: all 0.1s;
+    }
+  }
+
+  textarea {
+    border-radius: 3px;
+    padding: 10px;
+    border: 1px solid $tag-color;
+    width: 91%;
+  }
+}

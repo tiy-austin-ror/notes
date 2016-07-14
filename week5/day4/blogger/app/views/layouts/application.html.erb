@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= local_assigns[:title] || "Blogger" %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <div class="row">
+          <div class="four columns">
+            <div class="center-align">
+              <h1>Blogger</h1>
+            </div>
+          </div>
+          <div class="offset-by-three five columns">
+            <%= render "shared/nav" %>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class='content'>
+      <div class='container'>
+        <% flash.each do |key, value| %>
+          <p> <%= "#{key.titleize}: #{value}" %></p>
+        <% end %>
+        <%= yield %>
+      </div>
+    </section>
+    <footer>
+      <small>Made with ♥ </small>
+    </footer>
+  </body>
+</html>
