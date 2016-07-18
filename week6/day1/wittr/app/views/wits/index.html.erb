@@ -1,0 +1,9 @@
+<% wits.each do |wit| %>
+  <%= render 'shared/user', user: user %>
+  <div class='wit'>
+    <p><%= wit.body %></p>
+    <%= link_to user_wit_path(user, wit) do %>
+      <small><%= time_ago_in_words(wit.created_at) %> ago</small>
+    <% end %>
+  </div>
+<% end %>

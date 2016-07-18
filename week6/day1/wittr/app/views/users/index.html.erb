@@ -1,0 +1,8 @@
+<% users.each do |user| %>
+  <div class='user'>
+    <strong><%= user.handle %></strong>
+    <p><%= link_to user.name, user %></p>
+
+    Tweets: <strong><%= user.wits.count %></strong>
+  </div>
+<% end %>
