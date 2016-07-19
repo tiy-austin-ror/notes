@@ -1,0 +1,8 @@
+<div class='user'>
+  <strong><%= user.handle %></strong>
+  <p><%= link_to user.name, user %></p>
+  <p><%= link_to user.email, "mailto:#{user.email}" %></p>
+
+  <%= link_to "Wits:", user_wits_path(user) %> <strong><%= user.wits_count %></strong>
+</div>
+

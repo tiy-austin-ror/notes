@@ -4,6 +4,12 @@ Rails.application.routes.draw do
     resources :wits
   end
 
+  namespace :api do
+    resources :users do
+      resources :wits
+    end
+  end
+
 #  users_path     #=>  users#index
 #  user_path(user) #=> users#show
 #  edit_user_path(user) #=> users#edit

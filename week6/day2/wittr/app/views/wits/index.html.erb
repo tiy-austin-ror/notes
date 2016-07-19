@@ -1,0 +1,10 @@
+<% wits.each do |wit| %>
+  <%= render 'shared/user', user: user %>
+  <div class='wit'>
+    <p><%= wit.body %></p>
+    <%= link_to user_wit_path(user, wit) do %>
+      <small><%= time_ago_in_words(wit.created_at) %> ago</small>
+    <% end %>
+    Distance from Penn Field: <%= wit.distance_to([30.2266067,-97.7606497], :mi) || "unknown" %>
+  </div>
+<% end %>

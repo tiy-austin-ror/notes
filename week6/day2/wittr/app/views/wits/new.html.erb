@@ -1,0 +1,11 @@
+<h2>New Wit</h2>
+
+<%= form_for([user, wit], class: 'form') do |f| %>
+  <fieldset>
+    <%= f.text_area :body, placeholder: 'witty thoughts go here', class: 'form-control' %>
+  </fieldset>
+
+  <div class='actions text-center'>
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
