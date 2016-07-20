@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AuthBlog</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <% if user_logged_in? %>
+      Welcome! <%= current_user.name %>
+    <% else %>
+      <%= link_to "Sign In", sessions_sign_in_path %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
