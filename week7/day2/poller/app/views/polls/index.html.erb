@@ -1,0 +1,39 @@
+<div class="row">
+  <p id="notice"><%= notice %></p>
+</div>
+<div class="row">
+  <h1>Polls</h1>
+</div>
+<div class="row">
+  <% @polls.each do |poll| %>
+    <div class="col s12 m8 l4">
+      <div class="card">
+        <div class="card-content black-text">
+          <span class="card-title"><%= poll.name %></span>
+          <p>
+            <%= poll.description %>
+            <small><%= poll.questions.count %> Questions</small>
+          </p>
+        </div>
+        <div class="card-action">
+          <%= link_to "Take Poll", "#", class: "" %>
+          <%= link_to "View Results", "#" %>
+          <%= link_to "#", class: "view-questions" do %>
+            View Questions
+            <i class="material-icons right">expand_less</i>
+          <% end %>
+        </div>
+        <div class="poll-questions">
+          <ol class="collection">
+            <% poll.questions.each do |q| %>
+              <li class="collection-item"><%= q.body %></li>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+  <%= link_to 'New Poll', new_poll_path, class: "btn" %>
