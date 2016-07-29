@@ -1,0 +1,32 @@
+
+@import 'materialize';
+
+
+.poll-questions {
+  max-height: 0px;
+  overflow:hidden;
+  transition: all 0.5s ease-in-out;
+
+  &.opened {
+    max-height: 400px;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+
+html, body {
+  overflow-y: scroll;
+}
+
+
+.rating {
+  font-weight: bold;
+}
+
+
+@for $i from 1 through 9 {
+  .fade-#{$i} {
+    opacity: 0.9 - ($i / 10);
+  }
+}
+

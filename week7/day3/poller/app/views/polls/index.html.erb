@@ -1,0 +1,114 @@
+<div class="row">
+  <p id="notice"><%= notice %></p>
+</div>
+<div class="row">
+  <h1>Polls</h1>
+</div>
+<div id="polls" class="row">
+  <% @polls.each do |poll| %>
+    <div class="col s12 m12 l6">
+      <div class="card">
+        <div class="card-content black-text">
+          <span class="card-title"><%= poll.name %></span>
+          <p>
+            <%= poll.description %>
+            <small><%= poll.questions.count %> Questions</small>
+          </p>
+        </div>
+        <div class="card-action">
+          <%= link_to "Take Poll", poll, class: "" %>
+          <%= link_to "View Results", "#" %>
+          <%= link_to "#", class: "view-questions" do %>
+            View Questions
+            <i class="material-icons right">expand_less</i>
+          <% end %>
+        </div>
+        <div class="poll-answers">
+          <% if poll.not_taken? %>
+            <p>This poll has not been taken yet</p>
+          <% else %>
+            <ul class="collection">
+              <% poll.questions.each do |question| %>
+                <li class="collection-item">
+                  <% if question.no_answers? %>
+                    <p>Question has no answers</p>
+                  <% else %>
+                    <div class="row">
+                      <div class="col m3">
+                        <small>Question</small><br/>
+                        <%= question.body %>
+                      </div>
+                      <div class="col m3">
+                        <small>Mode</small><br/>
+                        <h5><%= question.mode_of_answers %></h5>
+                      </div>
+                      <div class="col m3">
+                        <small>Average</small><br/>
+                        <h5 class="answer-average"><%= question.average_of_answers %></h5>
+                      </div>
+                      <div class="col m3">
+                        <small>Recent Answers</small><br/>
+                        <% question.recent_answers.each.with_index do |answer, index| %>
+                          <span class='rating fade-<%= index %>'><%= answer.rating %></span>
+                        <% end %>
+                      </div>
+                    </div>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+        <div class="poll-questions">
+          <ol class="collection">
+            <% poll.questions.each do |q| %>
+              <li class="collection-item"><%= q.body %></li>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<!-- Modal Trigger -->
+<a class="modal-trigger waves-effect waves-light btn" href="#new_poll_modal">New Poll</a>
+
+<!-- Modal Structure -->
+<div id="new_poll_modal" class="modal modal-fixed-footer">
+  <%= form_for(@poll, remote: true) do |f| %>
+    <div class="modal-content">
+      <h4>New Poll</h4>
+      <% if @poll.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@poll.errors.count, "error") %> occured:</h2>
+          <ul>
+          <% @poll.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :user_id %>
+        <%= f.select :user_id, User.all.map { |u| [u.name, u.id] } %>
+      </div>
+
+      <div class="field">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: "materialize-textarea" %>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <%= f.submit class: "modal-action modal-close waves-effect waves-green btn-flat" %>
+    </div>
+  <% end %>
+</div>
+
