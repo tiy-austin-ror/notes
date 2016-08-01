@@ -1,0 +1,54 @@
+<div class="row">
+  <p id="notice"><%= notice %></p>
+</div>
+<div class="row">
+  <%= react_component("Header", name: "Polls") %>
+  <%= react_component("Counter") %>
+</div>
+<div id="polls" class="row">
+  <% @polls.each do |poll| %>
+    <%= react_component("Poll", poll: poll) %>
+  <% end %>
+</div>
+
+<!-- Modal Trigger -->
+<a class="modal-trigger waves-effect waves-light btn" href="#new_poll_modal">New Poll</a>
+
+<!-- Modal Structure -->
+<div id="new_poll_modal" class="modal modal-fixed-footer">
+  <%= form_for(@poll, remote: true) do |f| %>
+    <div class="modal-content">
+      <h4>New Poll</h4>
+      <% if @poll.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@poll.errors.count, "error") %> occured:</h2>
+          <ul>
+          <% @poll.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :user_id %>
+        <%= f.select :user_id, User.all.map { |u| [u.name, u.id] } %>
+      </div>
+
+      <div class="field">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: "materialize-textarea" %>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <%= f.submit class: "modal-action modal-close waves-effect waves-green btn-flat" %>
+    </div>
+  <% end %>
+</div>
+
