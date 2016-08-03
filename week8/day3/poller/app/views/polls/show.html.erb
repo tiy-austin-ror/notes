@@ -1,0 +1,26 @@
+<div id="polls" class="row">
+  <div class="col s12 m12 l12">
+    <div class="card">
+      <div class="card-content black-text">
+        <span class="card-title"><%= @poll.name %></span>
+        <p>
+          <%= @poll.description %>
+          <small><%= @poll.questions.count %> Questions</small>
+        </p>
+      </div>
+      <div class="">
+        <ol class="collection">
+          <% @poll.questions.each do |q| %>
+            <%= react_component("QuestionInput",
+                                question: q,
+                                currentAnswer: q.recent_answer_for(current_user),
+                                buttonRange: Array(1..5),
+                                user: current_user) %>
+          <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+

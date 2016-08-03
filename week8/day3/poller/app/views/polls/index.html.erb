@@ -1,0 +1,20 @@
+<div class="row">
+  <p id="notice"><%= notice %></p>
+</div>
+<div class="row">
+  <%= react_component("Header", name: "Polls") %>
+  <%= react_component("Counter") %>
+</div>
+<div id="polls" class="row">
+  <% @polls.each do |poll| %>
+    <%= react_component("Poll", poll: poll) %>
+  <% end %>
+</div>
+
+<!-- Modal Trigger -->
+<a class="modal-trigger waves-effect waves-light btn" href="#new_poll_modal">New Poll</a>
+<!-- Modal Structure -->
+<div id="new_poll_modal" class="modal modal-fixed-footer">
+  <%= react_component("NewPoll", users: User.all) %>
+</div>
+
